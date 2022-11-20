@@ -356,7 +356,7 @@ class Ui_about(QtWidgets.QWidget):
         self.setObjectName("self")
         self.resize(400, 59)
         self.label = QtWidgets.QLabel(self)
-        self.label.setGeometry(QtCore.QRect(20, 20, 181, 16))
+        self.label.setGeometry(QtCore.QRect(20, 20, 250, 16))
         self.label.setObjectName("label")
 
         self.retranslateUi()
