@@ -26,6 +26,11 @@ all_simb = '1234567890qwertyuiopasdfghjklzxcvbnm'
 
 directories = ['default']
 custom = {}
+
+file2 = open("music.csv", 'w')
+file3 = open("music2.csv", 'w')
+file2.close()
+file3.close()
 file = open("music.csv", 'r+')
 reader = csv.reader(file, delimiter=',')
 gg = set()
