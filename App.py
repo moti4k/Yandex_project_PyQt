@@ -26,11 +26,11 @@ all_simb = '1234567890qwertyuiopasdfghjklzxcvbnm'
 
 directories = ['default']
 custom = {}
-
-file2 = open("music.csv", 'w')
-file3 = open("music2.csv", 'w')
-file2.close()
-file3.close()
+if not os.path.exists("music.csv"):
+    file2 = open("music.csv", 'w')
+    file3 = open("music2.csv", 'w')
+    file3.close()
+    file2.close()
 file = open("music.csv", 'r+')
 reader = csv.reader(file, delimiter=',')
 gg = set()
@@ -88,7 +88,7 @@ def play_base_setups():
         write(f_out, w, hipitch_sound)
 
     def func():
-        folder_from = os.getcwd() + r'\alfabet'
+        folder_from = os.getcwd()+r'\alfabet'
         folder_to = os.getcwd()
         for f in os.listdir(folder_from):
             if os.path.isfile(os.path.join(folder_from, f)):
@@ -96,7 +96,7 @@ def play_base_setups():
             if os.path.isdir(os.path.join(folder_from, f)):
                 os.system(f'rd /S /Q {folder_to}\\{f}')
                 shutil.copytree(os.path.join(folder_from, f), os.path.join(folder_to, f))
-        folder_from = os.getcwd() + r'\music'
+        folder_from = os.getcwd()+r'\music'
         folder_to = os.getcwd()
 
         for f in os.listdir(folder_from):
@@ -105,9 +105,7 @@ def play_base_setups():
             if os.path.isdir(os.path.join(folder_from, f)):
                 os.system(f'rd /S /Q {folder_to}\\{f}')
                 shutil.copytree(os.path.join(folder_from, f), os.path.join(folder_to, f))
-        if not os.path.isdir("Custom"):
-            os.mkdir("Custom")
-        folder_from = os.getcwd() + r'\custom'
+        folder_from = os.getcwd()+r'\custom'
         folder_to = os.getcwd()
 
         for f in os.listdir(folder_from):
@@ -358,7 +356,7 @@ class Ui_about(QtWidgets.QWidget):
         self.setObjectName("self")
         self.resize(400, 59)
         self.label = QtWidgets.QLabel(self)
-        self.label.setGeometry(QtCore.QRect(20, 20, 250, 16))
+        self.label.setGeometry(QtCore.QRect(20, 20, 181, 16))
         self.label.setObjectName("label")
 
         self.retranslateUi()
@@ -565,7 +563,7 @@ class Ui_Form(QtWidgets.QWidget):
                 if not os.path.isdir("Custom"):
                     os.mkdir("Custom")
                 os.replace(tex, f"Custom/{tex}")
-                folder_from = os.getcwd() + r'custom'
+                folder_from = os.getcwd()+r'\custom'
                 folder_to = os.getcwd()
 
                 for f in os.listdir(folder_from):
@@ -621,7 +619,7 @@ class Ui_Form(QtWidgets.QWidget):
                 if not os.path.isdir("Custom"):
                     os.mkdir("Custom")
                 os.replace(tex, f"Custom/{tex}")
-                folder_from = os.getcwd() + r'\custom'
+                folder_from = os.getcwd()+r'\custom'
                 folder_to = os.getcwd()
 
                 for f in os.listdir(folder_from):
